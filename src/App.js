@@ -1,9 +1,15 @@
 import React, { useEffect, useState } from "react";
-import "./App.css";
+
+import Container from '@material-ui/core/Container'
+
+import TopBanner from './components/TopBanner'
+
 
 import web3 from "./web3";
 
 import bannerContract from "./banner";
+
+
 
 function App() {
   const [banner, setBanner] = useState(null);
@@ -24,16 +30,13 @@ function App() {
   }, []);
 
   return (
-    <div className="App">
+    <Container  >
       {!banner && <p>Loading...</p>}
       {banner && (
-        <div>
-      <p>{banner.bannerContent}</p>
-      <p>{banner.bannerCreator}</p>
-      </div>
+    <TopBanner message={banner} />
       )}
 
-    </div>
+    </Container>
   );
 }
 
