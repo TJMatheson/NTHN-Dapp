@@ -23,4 +23,16 @@ it("displays a banner with the latest message from contract, and the sender's ad
 
 });
 
+it("displays a textfield for user to write their own message", () => {
+
+  render(<App />)
+
+  const TextField = screen.getByTestId("message-input")
+
+  expect(TextField).toBeTruthy()
+
+
+
+})
+
 

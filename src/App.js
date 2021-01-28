@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import Container from '@material-ui/core/Container'
 
 import TopBanner from './components/TopBanner'
+import InputCard from './components/InputCard'
 
 
 import web3 from "./web3";
@@ -30,11 +31,14 @@ function App() {
   }, []);
 
   return (
-    <Container  >
+    <Container >
       {!banner && <p>Loading...</p>}
       {banner && (
     <TopBanner message={banner} />
       )}
+
+<InputCard/>
+
 
     </Container>
   );
