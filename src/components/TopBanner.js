@@ -10,7 +10,6 @@ import Typography from '@material-ui/core/Typography';
 const useStyles = makeStyles({
     root: {
       minWidth: 275,
-      maxWidth: '70%',
       display: "flex",
       flexDirection: "column",
       alignItems: "center",
@@ -38,7 +37,7 @@ const TopBanner = ({message}) => {
         <Card  variant="outlined" raised={true} className={classes.root}>
         <CardContent>
           <Typography className={classes.title} color="textSecondary" gutterBottom>
-            Message:
+            Latest Message:
           </Typography>
           <Typography variant="h4" component="h2">
             {message.bannerContent}
