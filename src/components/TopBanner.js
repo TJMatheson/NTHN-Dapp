@@ -5,6 +5,8 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import RefreshIcon from '@material-ui/icons/Refresh';
+
 
 
 const useStyles = makeStyles({
@@ -30,7 +32,7 @@ const useStyles = makeStyles({
   });
   
 
-const TopBanner = ({message}) => {
+const TopBanner = ({message, manualRefresh}) => {
     const classes = useStyles();
 
     return (
@@ -50,7 +52,7 @@ const TopBanner = ({message}) => {
           </Typography>
         </CardContent>
         <CardActions>
-          <Button size="small" color="primary" variant="outlined">Refresh</Button>
+          <Button size="small" color="primary" variant="outlined" onClick={manualRefresh}><RefreshIcon style={{marginRight: "5px"}}/>  Manual refresh</Button>
         </CardActions>
       </Card>
     )

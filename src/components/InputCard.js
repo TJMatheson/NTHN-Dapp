@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import Card from "@material-ui/core/Card";
-import CardActions from "@material-ui/core/CardActions";
+import Box from "@material-ui/core/Box";
 import CardContent from "@material-ui/core/CardContent";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import TextField from "@material-ui/core/TextField";
 import CircularProgress from "@material-ui/core/CircularProgress";
+import MailOutlineIcon from '@material-ui/icons/MailOutline';
 
 import web3 from "../web3";
 import bannerContract from "../banner";
@@ -14,7 +14,6 @@ import bannerContract from "../banner";
 const useStyles = makeStyles({
   root: {
     minWidth: 275,
-    maxWidth: "50%",
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
@@ -70,8 +69,7 @@ const InputCard = ({ isLoading, setIsLoading }) => {
 
   if (isLoading) {
     return (
-        <Card variant="outlined" raised={true} className={classes.root}>
-        {" "}
+      <Box style={{ justifyContent: "center" }}>
         <Typography
           className={classes.title}
           color="textSecondary"
@@ -80,12 +78,12 @@ const InputCard = ({ isLoading, setIsLoading }) => {
           Sending transaction, please wait...
         </Typography>{" "}
         <CircularProgress />
-      </Card>
+      </Box>
     );
   }
 
   return (
-    <Card variant="outlined" raised={true} className={classes.root}>
+    <Box style={{ flexDirection:"column", alignItems: "center" }}>
       <CardContent>
         <Typography
           className={classes.title}
@@ -100,20 +98,18 @@ const InputCard = ({ isLoading, setIsLoading }) => {
           data-testid="message-input"
           value={message}
           onChange={(e) => setMessage(e.target.value)}
-          style={{marginTop:"20px"}}
+          style={{ marginTop: "20px" }}
         />
       </CardContent>
-      <CardActions>
         <Button
           size="small"
           color="primary"
           variant="outlined"
           onClick={onSubmit}
-        >
+        ><MailOutlineIcon style={{marginRight: "5px"}}/>
           Send to contract
         </Button>
-      </CardActions>
-    </Card>
+    </Box>
   );
 };
 
